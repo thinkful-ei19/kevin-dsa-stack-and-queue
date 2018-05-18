@@ -69,7 +69,50 @@ function display(stack) {
   return displayStack;
 }
 
-// ===STACK CREATION WITH MAIN===
+// IS STRING A PALINDROME
+
+function is_palindrome(string) {
+  string = string.toLowerCase().replace(/[^a-zA-Z0-9]/g, "");
+  let stack = new Stack();
+
+  for (let i = 0; i < string.length; i++) {
+    stack.push(string[i]);
+  }
+
+  for (let i = 0; i < string.length; i++) {
+    if (stack.pop() !== string[i]) {
+      return false;
+    } 
+  }
+  return true;
+}
+
+function matchingParens(string) {
+  let temp = [];
+  let tempBackward = [];
+  for (let i = 0; i < string.length; i++) {
+    current = string[i];
+    lastChild = temp[temp.length-1];
+    if (current === '(' || current === '[' || current === '{' ) {
+      temp.push(current);
+    }
+    if (current === ')' || current === ']' || current === '}') {
+      if (lastChild === '(' && current === ')') {
+        temp.pop();
+      }
+      if (lastChild === '{' && current === '}') {
+        temp.pop();
+      }
+      if (lastChild === '[' && current === ']') {
+        temp.pop();
+      }
+    }
+    // console.log(temp);
+  }
+  console.log(temp);
+}
+
+// ===STACK CREATION WITH MAIN=== \\
 
 const starTrek = new Stack
 
@@ -84,4 +127,9 @@ function main() {
 
 main();
 // peek(starTrek);
-display(starTrek);
+// display(starTrek);
+// console.log(is_palindrome("dad"));
+// console.log(is_palindrome("A man, a plan, a canal: Panama"));
+// console.log(is_palindrome("1001"));
+// console.log(is_palindrome("Tauhida"));
+matchingParens('{[()]}');
