@@ -44,24 +44,22 @@ function peek(stack) {
   if (currNode === null) {
     throw new Error('empty stack');
   }
-
+  console.log(displayNode);
   return displayNode;
 }
 
 // ===STACK CREATION WITH MAIN===
 
-function main() {
-  let starTrek = new Stack();
+const starTrek = new Stack
 
+function main() {
   starTrek.push('Kirk');
   starTrek.push('Spock');
   starTrek.push('McCoy');
   starTrek.push('Scotty');
-
-  console.log(peek(starTrek));
-  return starTrek;
 }
 
 // ===INVOCATIONS===
 
 main();
+peek(starTrek);
