@@ -35,7 +35,9 @@ class Stack {
   }
 }
 
-//===METHODS===
+//===METHODS===\\
+
+// PEEK
 
 function peek(stack) {
   let currNode = stack.top;
@@ -46,6 +48,25 @@ function peek(stack) {
   }
   console.log(displayNode);
   return displayNode;
+}
+
+// DISPLAY
+
+function display(stack) {
+  let currNode = stack.top;
+  let displayStack = currNode.data.toString();
+
+  if (currNode === null) {
+    throw new Error('empty stack');
+  }
+
+  while (currNode.next !== null) {
+    displayStack += ', ' + currNode.next.data.toString();
+    currNode = currNode.next;
+  }
+
+  console.log(displayStack);
+  return displayStack;
 }
 
 // ===STACK CREATION WITH MAIN===
@@ -62,4 +83,5 @@ function main() {
 // ===INVOCATIONS===
 
 main();
-peek(starTrek);
+// peek(starTrek);
+display(starTrek);
