@@ -32,6 +32,36 @@ class Stack {
     const node = this.top;
     this.top = node.next;
     return node.data;
+  }
 }
 
+//===METHODS===
+
+function peek(stack) {
+  let currNode = stack.top;
+  let displayNode = currNode.data.toString();
+
+  if (currNode === null) {
+    throw new Error('empty stack');
+  }
+
+  return displayNode;
 }
+
+// ===STACK CREATION WITH MAIN===
+
+function main() {
+  let starTrek = new Stack();
+
+  starTrek.push('Kirk');
+  starTrek.push('Spock');
+  starTrek.push('McCoy');
+  starTrek.push('Scotty');
+
+  console.log(peek(starTrek));
+  return starTrek;
+}
+
+// ===INVOCATIONS===
+
+main();
